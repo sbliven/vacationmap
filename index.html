@@ -13,7 +13,9 @@
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
     <style>
-        #map { height: 400px; }
+        #map {
+            height: calc(100vh - 40px);
+        }
     </style>
 </head>
 
@@ -53,26 +55,11 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
+    <script src="js/lib/catiline.min.js"></script>
+    <script src="js/lib/leaflet.shpfile.js"></script>
+    <script src="js/map.js" charset="UTF-8"></script>
     <script>
-        //@46.8357183,8.2575321,8.58z
-        var mymap = L.map('map').setView([46.8357183,8.2575321], 7);
-        var accessToken = "pk.eyJ1IjoicXVhbnR1bTciLCJhIjoiY2tvM3lyaG5jMWVjdzJxb2I2ODgxbDVhOSJ9.yBFNSPZSc7PAy4e9mdATwA";
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-            maxZoom: 18,
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            accessToken: accessToken
-        }).addTo(mymap);
-        var marker = L.marker([47.3889678,8.5240037]).addTo(mymap);
-        marker.bindPopup("<b>Quartierpark Schütz</b><br/>Great slides!").openPopup();
-
-        var popup = L.popup()
-            .setLatLng([45.936944, 7.866944])
-            .setContent("<b>Dufourspitze</b><br/>Highest point!")
-            .openOn(mymap);
-
+        loadmap('map');
     </script>
 </body>
 

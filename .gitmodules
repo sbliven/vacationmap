@@ -1,0 +1,3 @@
+[submodule "swisscantonsmod"]
+	path = swisscantonsmod
+	url = https://github.com/sbliven/swisscantonsmod.git
